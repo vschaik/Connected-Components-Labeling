@@ -12,7 +12,7 @@ def main():
     args = parser.parse_args()
 
     if not args.images:
-        images = ["test_data/example_img_1.txt", "test_data/example_img_2.txt", "test_data/example_img_3.txt"]
+        images = ["test_data/example_img_1.txt"] #["test_data/example_img_1.txt", "test_data/example_img_2.txt", "test_data/example_img_3.txt"]
     else:
         images = args.images
 
@@ -39,12 +39,12 @@ def main():
         plt.title("Original Image")
 
         ax = fig.add_subplot(122)
-        plt.imshow(labeled_img)
+        plt.imshow(labeled_img, cmap='rainbow')
         plt.axis('off')
         plt.title("Labeled Image")
 
         for (j, i), label in np.ndenumerate(labeled_img):
-            ax.text(i, j, int(label), ha='center', va='center')
+            ax.text(i, j, int(label), ha='center', va='center', fontsize=6)
 
         plt.show()
         del labeler
